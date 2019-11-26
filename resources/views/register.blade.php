@@ -7,26 +7,32 @@
             <div class="card">
                 <div class="card-body">
 									<h2>
-										Log in
+										Register
 									</h2>
-
-									@error ('email')
-										{{ $message }}
-									@enderror
 
 									@if (session('message'))
 										<div class="alert alert-success">
 											{{ session('message') }}
 										</div>
 									@endif
+									@error ('email')
+										<div class="alert alert-warning">
+											{{ $message }}
+										</div>
+									@enderror
 
 
 									<form method="post" class="mt-4">
 										@csrf
 
 										<div class="form-group">
+											<label for="name" class="sr-only">Name</label>
+											<input autofocus required placeholder="Name" id="name" class="form-control" type="text" name="name" value="{{ old('name') }}">
+										</div>
+
+										<div class="form-group">
 											<label for="email" class="sr-only">Email</label>
-											<input autofocus required placeholder="Email address" id="email" class="form-control" type="email" name="email" value="{{ old('email') }}">
+											<input required placeholder="Email address" id="email" class="form-control" type="email" name="email" value="{{ old('email') }}">
 										</div>
 
 										<div class="form-group">

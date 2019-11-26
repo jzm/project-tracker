@@ -11,11 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'MainController@index')->middleware('auth');
 
+Route::get('login', 'AuthController@login')->name('login');
+Route::post('login', 'AuthController@postLogin');
 
-Route::get('login', 'Auth\LoginController@login');
+Route::get('register', 'AuthController@register')->middleware('guest')->name('register');
+Route::post('register', 'AuthController@postRegister')->middleware('guest');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('auth/token/{token}', 'AuthController@authenticate');
