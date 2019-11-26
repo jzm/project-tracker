@@ -12,6 +12,6 @@ class MainController extends BaseController
 
 	public function index() {
 
-		return 'yep';
+		return view('index');
 	}
 }
