@@ -46,4 +46,12 @@ class User extends Authenticatable
 		public function data() {
 			return $this->hasMany('App\UserData');
 		}
+
+
+		public function active(): bool {
+			if (isset($this->data->active)) {
+				return (bool) $this->data->active;
+			}
+			return false;
+		}
 }

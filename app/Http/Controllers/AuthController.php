@@ -84,4 +84,10 @@ class AuthController extends Controller
 			]);
 	}
 
+
+	public function notActivated() {
+		return view('not-activated');
+	}
+
+
 }

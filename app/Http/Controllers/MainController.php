@@ -8,10 +8,13 @@ class MainController extends BaseController
 {
 
 	public function __construct() {
+		$this->middleware('activated');
 	}
 
 	public function index() {
 
 		return view('index');
 	}
+
+
 }
